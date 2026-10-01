@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="YPO MENA Partnerships Directory: restaurants, bars and clubs across the region with YPO member benefits.">
+<title>MENA Partnerships Directory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@500;600&display=swap">
+<style>
+/* Layout: United MENA Playbook system — navy cover with triangle field, paper sections, hairline-grid cards, gold as the single accent. Single light theme, matching the Playbook. */
+:root{
+  --blue:#041e42; --gold:#d69d23; --azure:#1f43ea; --orange:#f94868;
+  --white:#fff; --ink:#1a1c1f; --paper:#f2f3f6; --paper-2:#f9f9f9; --line:#e4e6ea; --muted:#5b6675; --body2:#41495a;
+  --font:'Helvetica Neue',Helvetica,Arial,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --word:'Poppins','Helvetica Neue',Arial,sans-serif;
+  --maxw:1080px; --pad:clamp(16px,5vw,72px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;line-height:1.05;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0 0 1em}
+a{color:var(--azure);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+.lockup{display:flex;align-items:center;gap:.55rem;color:var(--white)}
+.lockup svg{width:34px;height:30px;flex:none}
+.lockup .word{font-family:var(--word);font-weight:500;font-size:1.45rem;letter-spacing:.02em;line-height:1}
+.lockup .region{border-left:1.5px solid currentColor;padding-left:.55rem;margin-left:.15rem;font-size:.6rem;font-weight:500;line-height:1.15;letter-spacing:.04em;text-transform:uppercase;opacity:.92}
+
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.7rem var(--pad);background:rgba(4,30,66,.96);backdrop-filter:blur(8px);color:var(--white);border-bottom:1px solid rgba(255,255,255,.12)}
+nav.top .links{display:flex;gap:1.2rem;flex-wrap:wrap}
+nav.top .links a{color:rgba(255,255,255,.85);font-size:.76rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;border-bottom:2px solid var(--gold);padding-bottom:2px}
+nav.top .links a:hover{color:var(--white);text-decoration:none}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-block:clamp(40px,6vw,80px);padding-inline:var(--pad)}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--azure);margin-bottom:1rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--gold);display:inline-block}
+.lede{font-size:clamp(1.05rem,2.2vw,1.3rem);font-weight:500;letter-spacing:-.01em;max-width:60ch;margin-bottom:1.4rem}
+.sec-h{font-size:clamp(1.4rem,3vw,1.9rem);margin:0 0 .8rem}
+
+/* cover */
+.cover{position:relative;overflow:hidden;background:var(--blue);color:var(--white);padding-block:clamp(40px,6vw,76px);padding-inline:var(--pad)}
+.cover .tri{position:absolute;right:-6%;top:-12%;width:min(720px,80%);opacity:.10;color:var(--white);pointer-events:none}
+.cover .inner{position:relative;max-width:var(--maxw);margin:0 auto}
+.cover .kicker{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.2rem}
+.cover h1{font-size:clamp(2.4rem,7.5vw,5.2rem);letter-spacing:-.03em;line-height:.95}
+.cover h1 .li{color:var(--gold)}
+.cover .sub{margin-top:1.3rem;max-width:52ch;font-size:clamp(1rem,2vw,1.18rem);color:rgba(255,255,255,.82)}
+.cover .foot{margin-top:2.2rem;display:flex;gap:.6rem;flex-wrap:wrap}
+.pill{display:inline-block;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.3rem .8rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.88)}
+.pill.gold{border-color:var(--gold);color:var(--gold)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:1.4rem 0 0}
+.stat{background:var(--white);padding:1.3rem 1.2rem}
+.stat .n{font-size:clamp(2rem,4.6vw,2.9rem);font-weight:700;letter-spacing:-.03em;color:var(--blue);line-height:1;font-variant-numeric:tabular-nums}
+.stat .n.gold{color:var(--gold)}
+.stat .l{margin-top:.45rem;font-size:.8rem;color:var(--muted);font-weight:500}
+
+/* directory */
+.dir{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.controls{display:flex;flex-wrap:wrap;gap:.8rem 1rem;align-items:center;justify-content:space-between;margin:1.2rem 0 1.4rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{font:inherit;font-size:.78rem;font-weight:600;letter-spacing:.04em;padding:.45rem .95rem;border-radius:999px;border:1px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer}
+.chip:hover{border-color:var(--blue)}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.chip .ct{opacity:.6;margin-left:.3rem;font-variant-numeric:tabular-nums}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap}
+.filters select,.filters input{font:inherit;font-size:.85rem;padding:.5rem .75rem;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--ink);min-width:0}
+.filters input{width:220px;max-width:100%}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0;transition:box-shadow .2s ease,transform .2s ease}
+.card:hover{box-shadow:0 14px 40px -24px rgba(4,30,66,.55);transform:translateY(-2px)}
+.card .top{display:flex;gap:.9rem;align-items:center;padding:1.1rem 1.2rem .9rem;border-bottom:1px solid var(--line)}
+.logo{flex:none;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:1.7rem;line-height:1;color:var(--white);background:var(--blue);position:relative}
+.logo.lg{width:88px;height:88px;font-size:2.7rem;border-radius:50%}
+.logo small{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-family:var(--font);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6;bottom:9px}
+.logo.lg small{font-size:.52rem;bottom:14px}
+.card h3{font-size:1.15rem;margin-bottom:.2rem}
+.meta{font-size:.78rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.16rem .5rem;border-radius:4px}
+.tag.restaurant{background:rgba(31,67,234,.1);color:var(--azure)}
+.tag.bar{background:rgba(214,157,35,.16);color:#8a620c}
+.tag.club{background:rgba(4,30,66,.09);color:var(--blue)}
+.tag.pilot{background:rgba(214,157,35,.16);color:#8a620c}
+.card .body{padding:1rem 1.2rem 1.1rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.card .desc{font-size:.88rem;color:var(--body2);margin:0}
+.offer{border-left:3px solid var(--gold);background:var(--paper-2);padding:.6rem .8rem;border-radius:0 6px 6px 0}
+.offer .k{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a620c;display:block;margin-bottom:.15rem}
+.offer p{margin:0;font-size:.86rem;font-weight:600;color:var(--ink)}
+.card .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted);padding-top:.3rem}
+.card .foot .go{color:var(--azure);font-weight:600}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0;border-bottom:1px solid var(--line)}
+.kv div{padding:.6rem 1.2rem;min-width:0}
+.kv div+div{border-left:1px solid var(--line)}
+.kv dt{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.kv dd{margin:.1rem 0 0;font-size:.88rem;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
+.kv.inline{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;border:0;margin:.7rem 0 .2rem}
+.kv.inline div{padding:0}
+.kv.inline div+div{border-left:0}
+.empty{grid-column:1/-1;border:1px dashed #c7ccd4;border-radius:10px;padding:2rem;text-align:center;color:var(--muted);background:var(--white)}
+.empty strong{display:block;color:var(--ink);font-size:1rem;margin-bottom:.3rem}
+
+/* snapshot */
+.snap{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 14px 40px -24px rgba(4,30,66,.5);background:var(--white)}
+.snap .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--blue);color:var(--white);padding:.7rem 1.1rem;font-size:.8rem}
+.snap .bar .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block;margin-right:.5rem;box-shadow:0 0 0 4px rgba(74,222,128,.18)}
+.snap .bar .close{font:inherit;background:none;border:1px solid rgba(255,255,255,.35);color:var(--white);border-radius:6px;padding:.25rem .7rem;cursor:pointer;font-size:.75rem}
+.snap .head{display:flex;gap:1.3rem;align-items:center;flex-wrap:wrap;padding:1.6rem 1.6rem 1.3rem;border-bottom:1px solid var(--line)}
+.snap .head > div{min-width:0}
+.snap h3{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:.35rem}
+.snap .tags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.5rem}
+.snap .cols{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+.snap .main{padding:1.5rem 1.6rem;border-right:1px solid var(--line);min-width:0}
+.snap .side{padding:1.5rem 1.6rem;background:var(--paper-2);min-width:0;display:flex;flex-direction:column;gap:1.2rem}
+.snap .quote{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.2;color:var(--blue);margin:0 0 1rem}
+.snap .main p{color:var(--body2);font-size:.95rem}
+.snap .offer{padding:1rem 1.1rem;margin-top:1.2rem}
+.snap .offer p{font-size:1.02rem}
+.snap .offer ul{margin:.6rem 0 0;padding-left:1.1rem;font-size:.84rem;color:var(--body2)}
+.snap .offer li{margin:.15rem 0}
+.facts{display:grid;gap:0;margin:0}
+.facts div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:.8rem;padding:.55rem 0;border-top:1px solid var(--line);font-size:.86rem}
+.facts div:first-child{border-top:0}
+.facts dt{color:var(--muted);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding-top:.12rem}
+.facts dd{margin:0;overflow-wrap:anywhere}
+.btns{display:flex;flex-direction:column;gap:.5rem}
+.btn{display:flex;justify-content:center;align-items:center;gap:.4rem;font:inherit;font-size:.85rem;font-weight:700;padding:.75rem 1rem;border-radius:8px;background:var(--blue);color:var(--white);border:1px solid var(--blue);text-align:center}
+.btn:hover{text-decoration:none;background:#0a2c5c}
+.btn.ghost{background:var(--white);color:var(--blue);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--blue);background:var(--white)}
+.member{display:flex;gap:.8rem;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem}
+.avatar{flex:none;width:44px;height:44px;border-radius:50%;background:var(--paper);border:1px dashed #b9c0cb;display:grid;place-items:center;color:var(--muted);font-size:.7rem;font-weight:700}
+.avatar.on{background:var(--blue);border:0;color:var(--white);font-size:.8rem;letter-spacing:.04em}
+.member .nm{font-weight:700;font-size:.9rem}
+.member .rl{font-size:.76rem;color:var(--muted)}
+.member a{font-size:.78rem;font-weight:600}
+.side .lbl{font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
+.ph-note{margin:0;font-size:.76rem;color:var(--muted);font-style:italic}
+
+dialog#detail{border:0;padding:0;background:transparent;width:min(980px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow:auto}
+dialog#detail::backdrop{background:rgba(4,30,66,.55)}
+
+/* fields spec */
+.spec{list-style:none;counter-reset:c;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec li{counter-increment:c;background:var(--white);padding:1rem 1.2rem;display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem}
+.spec li::before{content:counter(c,decimal-leading-zero);font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums}
+.spec h4{font-size:.98rem;margin-bottom:.2rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.spec p{margin:0;font-size:.86rem;color:var(--body2)}
+.req{font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.12rem .45rem;border-radius:4px;background:rgba(31,67,234,.1);color:var(--azure)}
+.req.opt{background:var(--paper);color:var(--muted)}
+
+/* roadmap */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin-top:1.2rem}
+.ph{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:1rem 1.2rem;background:var(--white)}
+.ph.dim{border-left-color:#c7ccd4}
+.ph .when{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--azure)}
+.ph h4{font-size:1.08rem;margin:.3rem 0 .4rem}
+.ph ul{margin:0;padding-left:1.1rem;color:var(--body2);font-size:.86rem}
+.ph li{margin:.2rem 0}
+
+footer{background:var(--blue);color:var(--white);padding-block:clamp(36px,5vw,60px);padding-inline:var(--pad)}
+footer .grid2{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-end}
+footer .small{font-size:.76rem;color:rgba(255,255,255,.62);max-width:52ch;line-height:1.6;margin:0}
+footer .small strong{color:rgba(255,255,255,.92)}
+
+@media (max-width:760px){
+  .snap .cols{grid-template-columns:1fr}
+  .snap .main{border-right:0;border-bottom:1px solid var(--line)}
+  .snap .head,.snap .main,.snap .side{padding-inline:1.1rem}
+  .facts div{grid-template-columns:92px minmax(0,1fr)}
+  .filters,.filters input,.filters select{width:100%}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tri-field" viewBox="0 0 600 600">
+    <g fill="currentColor">
+      <polygon points="300,40 180,250 420,250"/><polygon points="180,250 60,460 300,460"/>
+      <polygon points="420,250 300,460 540,460"/><polygon points="300,250 240,355 360,355" opacity=".6"/>
+    </g>
+  </symbol>
+</svg>
+
+<nav class="top">
+  <span class="lockup"><svg viewBox="40 30 520 440" aria-hidden="true"><use href="#tri-field"/></svg><span class="word">YPO</span><span class="region">Middle East /<br>North Africa</span></span>
+  <div class="links">
+    <a href="#directory">Directory</a>
+    <a href="#snapshot">Venue snapshot</a>
+    <a href="#fields">Listing fields</a>
+  </div>
+</nav>
+
+<header class="cover">
+  <svg class="tri" viewBox="0 0 600 600" aria-hidden="true"><use href="#tri-field"/></svg>
+  <div class="inner">
+    <div class="kicker">YPO MENA · Strategic Partnerships</div>
+    <h1>MENA <span class="li">Partnerships</span><br>Directory</h1>
+    <p class="sub">Restaurants, bars and clubs across the region with benefits reserved for YPO members. Every venue is introduced by a fellow member, so you know who to call.</p>
+  </div>
+</header>
+
+<section class="dir" id="directory" aria-labelledby="dir-h">
+  <div class="wrap">
+    <div class="eyebrow">Directory</div>
+    <h2 class="sec-h" id="dir-h">Browse partner venues</h2>
+    <p style="color:var(--muted);max-width:62ch;margin:0">Select a venue to open its snapshot. Gymkhana, Ribambelle and Iris are the example entries; the Bars tab shows how a category reads before its partners are onboarded.</p>
+    <div class="controls">
+      <div class="chips" role="group" aria-label="Category">
+        <button class="chip" id="c-all" data-cat="all" aria-pressed="true">All<span class="ct"></span></button>
+        <button class="chip" id="c-restaurant" data-cat="restaurant" aria-pressed="false">Restaurants<span class="ct"></span></button>
+        <button class="chip" id="c-bar" data-cat="bar" aria-pressed="false">Bars<span class="ct"></span></button>
+        <button class="chip" id="c-club" data-cat="club" aria-pressed="false">Clubs<span class="ct"></span></button>
+      </div>
+      <div class="filters">
+        <label class="visually-hidden" for="f-city" hidden>City</label>
+        <select id="f-city" aria-label="City">
+          <option value="all">All cities</option>
+          <option>Dubai</option><option>Abu Dhabi</option><option>Riyadh</option><option>Jeddah</option><option>Doha</option><option>Kuwait City</option><option>Manama</option><option>Muscat</option><option>Beirut</option><option>Amman</option><option>Cairo</option>
+        </select>
+        <select id="f-cuisine" aria-label="Cuisine">
+          <option value="all">All cuisines</option>
+          <option>Arabic</option><option>Lebanese</option><option>Indian</option><option>Japanese</option><option>Asian</option><option>Italian</option><option>French</option><option>Mediterranean</option><option>Latin American</option><option>International</option><option>Seafood</option><option>Steakhouse</option>
+        </select>
+        <input id="f-q" type="search" placeholder="Search venue, cuisine, area" aria-label="Search">
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="wrap" id="snapshot" aria-labelledby="snap-h">
+  <div class="eyebrow">Venue snapshot · Example entry</div>
+  <h2 class="sec-h" id="snap-h">Gymkhana, Dubai</h2>
+  <p class="lede">This is the full listing a member sees after tapping a card. The same layout is used for every restaurant, bar and club.</p>
+  <div id="snap-inline"></div>
+</section>
+
+<section class="dir" id="fields" aria-labelledby="f-h">
+  <div class="wrap">
+    <div class="eyebrow">Listing template</div>
+    <h2 class="sec-h" id="f-h">What we collect for each venue</h2>
+    <p style="color:var(--muted);max-width:62ch">Use this as the intake form for partners and the member host. Fields in the order they appear on the snapshot.</p>
+    <ol class="spec">
+      <li><div><h4>Venue name &amp; logo <span class="req">Required</span></h4><p>Official name, plus a square logo (PNG or SVG, 400×400 minimum) supplied by the venue.</p></div></li>
+      <li><div><h4>Category <span class="req">Required</span></h4><p>Restaurant, Bar or Club. More partnership categories can be added later.</p></div></li>
+      <li><div><h4>City &amp; area <span class="req">Required</span></h4><p>City from the regional list, plus neighbourhood or building, e.g. DIFC, Gate Village 7.</p></div></li>
+      <li><div><h4>Cuisine / venue type <span class="req">Required</span></h4><p>Short descriptor, e.g. Indian fine dining, cocktail bar, private members' club.</p></div></li>
+      <li><div><h4>Website &amp; booking link <span class="req">Required</span></h4><p>Official website and the direct reservation page (SevenRooms, OpenTable or phone).</p></div></li>
+      <li><div><h4>Description <span class="req">Required</span></h4><p>Free text, 60–120 words. What it is, why a member would go, and one thing to order or ask for.</p></div></li>
+      <li><div><h4>YPO member offer <span class="req">Required</span></h4><p>Standard benefit: 20% off the food bill (20% off the total bill for bars and clubs), plus terms: validity, group size, exclusions and how to redeem.</p></div></li>
+      <li><div><h4>Affiliated member <span class="req">Required</span></h4><p>Name, chapter and YPO Connect profile link of the member who owns, invests in or introduced the venue.</p></div></li>
+      <li><div><h4>Hours &amp; dress code <span class="req opt">Optional</span></h4><p>Shown in the fact list when supplied.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="grid2">
+    <div>
+      <span class="lockup" style="margin-bottom:1.1rem"><svg viewBox="40 30 520 440" aria-hidden="true"><use href="#tri-field"/></svg><span class="word">YPO</span><span class="region">Middle East /<br>North Africa Region</span></span>
+      <p class="small"><strong>Mock-up for internal review.</strong> Venue facts are drawn from public sources. All member offers, affiliated members and Connect links are placeholders until agreed with each partner. Logo tiles stand in for the venue's own artwork.</p>
+    </div>
+    <p class="small">Confidential · For YPO MENA member and officer use</p>
+  </div>
+</footer>
+
+<dialog id="detail" aria-label="Venue snapshot"><div id="detail-body"></div></dialog>
+
+<script>
+const VENUES = [
+  {
+    id:'gymkhana', name:'Gymkhana', cat:'restaurant', catLabel:'Restaurant', initials:'G',
+    city:'Dubai', area:'DIFC · Gate Village, Building 7',
+    cuisine:'Indian', cuisineTags:['Indian'], type:'Fine dining restaurant',
+    website:'https://www.gymkhanadubai.com', websiteLabel:'gymkhanadubai.com',
+    booking:'https://www.sevenrooms.com/explore/gymkhanadubai/reservations/create/search', bookingLabel:'Reserve on SevenRooms',
+    short:'The two-Michelin-starred London institution from JKS Restaurants, now open in DIFC with Dubai-only dishes alongside the classics.',
+    quote:'Colonial-era Indian gymkhana clubs, reimagined for DIFC.',
+    desc:[
+      'Gymkhana opened in Dubai on 1 September 2026, the brand’s UAE debut after London, Riyadh and Las Vegas. The London original holds two Michelin stars. Founded by siblings Jyotin, Karam and Sunaina Sethi, the menu draws on regional cooking from across India: chaat-style sharing plates, tandoor, curries and biryani.',
+      'The two-level room seats 137 plus a terrace, with lantern-lit dining upstairs and a lower level of mirrored ceilings and chandeliers. Ask for the Dubai exclusives, such as the Makhmali King Crab or Wagyu Beef Sukka with bone marrow, and the signature Kid Goat Methi Keema.'
+    ],
+    offer:'20% off the food bill',
+    terms:['Up to 6 guests, dinner service Sunday to Thursday','Book through the member line and mention “YPO MENA”','Excludes beverages, service charge, public holidays and special event nights'],
+    hours:'Dinner nightly, 6:30 pm – 1:00 am', dress:'Smart',
+    note:'Two Michelin stars (London)',
+    member:{name:'Sid Mehta', role:'YPO member · Gymkhana', initials:'SM', url:'https://ypoconnect.org/#/memberProfile?memberId=30303334-5230-3030-3034-456e59577200&source=ams&returnPath=https%3A%2F%2Fmembers.ypoconnect.org%2F%3Fsearchkey%3DGymkhana&sortby=Best%20Match'}
+  },
+  {
+    id:'ribambelle', name:'Ribambelle', cat:'restaurant', catLabel:'Restaurant', initials:'R',
+    city:'Dubai', area:'Bluewaters Island · The Wharf Mall',
+    cuisine:'International (Asian, Latin, Mediterranean)', cuisineTags:['International','Asian','Latin American','Mediterranean'], type:'Family restaurant with kids\u2019 play & workshops',
+    website:'https://ribambelle.ae/', websiteLabel:'ribambelle.ae',
+    booking:'https://eatapp.co/ribambelle-the-wharf-mall-bluewaters', bookingLabel:'Reserve on Eat App',
+    short:'A family restaurant by Ain Dubai: grown-up dining upstairs, soft play and supervised creative workshops for children downstairs.',
+    quote:'Dinner for the adults, a workshop for the kids, under one roof.',
+    desc:[
+      'Ribambelle on Bluewaters Island pairs an eclectic menu from chef Gabriel Martinez with dedicated spaces for children. The ground floor has a soft-play jungle gym and an activity zone running arts, crafts and cooking classes, while the licensed restaurant upstairs has an industrial-chic dining room.',
+      'A natural fit for YPO family and spouse/partner gatherings. Try the beef gyoza with nori salt crust and the red pepper hummus, and save room for the interactive pavlova.'
+    ],
+    offer:'20% off the food bill',
+    terms:['Up to 6 guests per booking, including children','Mention “YPO MENA” when booking','Excludes beverages, play-area entry and workshops'],
+    hours:'Daily, 9:00 am – 11:00 pm', dress:'Casual',
+    note:'Family-friendly · children\u2019s menu available',
+    member:{name:'Yulia F.', role:'YPO member · Founder, Ribambelle', initials:'YF', url:'https://ypoconnect.org/#/memberProfile?memberId=30303336-3130-3030-3031-37766e714c00&source=ams&returnPath=https%3A%2F%2Fmembers.ypoconnect.org%2F%3Fsearchkey%3DRibambelle&sortby=Best%20Match'}
+  },
+  {
+    id:'iris', name:'Iris', cat:'club', catLabel:'Club', initials:'I',
+    city:'Dubai', area:'Meydan · Meydan Grandstand',
+    cuisineLabel:'Music', cuisine:'Deep house · international & local DJs',
+    type:'Nightclub with VIP tables & bottle service',
+    website:'https://www.addmind.com/brands/iris/', websiteLabel:'addmind.com/brands/iris',
+    booking:'tel:+97143343355', bookingLabel:'Reservations: +971 4 334 3355',
+    short:'Addmind’s nightlife landmark at Meydan, relaunched as Club Iris in October 2025 with a new dance floor, VIP section and themed nights against the skyline.',
+    quote:'Meydan’s skyline, a deep-house soundtrack and a table for the night.',
+    desc:[
+      'Iris has been one of Dubai’s best-known nightlife venues since its Meydan opening, operated by Addmind, the group behind many of the city’s leading restaurants and entertainment spots. It reopened as Club Iris on 8 October 2025 with a larger dance floor, a VIP section with table-side bottle service, and new lighting and sound.',
+      'Expect deep house, resident and guest DJs, and themed production nights. Well suited to a forum celebration or hosting guests after dinner.'
+    ],
+    offer:'20% off the total bill',
+    terms:['Up to 8 guests, subject to table minimum spend','Reserve 48 hours ahead via the member line and mention “YPO MENA”','Excludes headline and special event nights'],
+    hours:'Wed, Thu & Sat nights (times vary by event)', dress:'Smart, club attire',
+    note:'Relaunched as Club Iris, October 2025',
+    member:{name:'Antoine El Habre', role:'YPO member · Addmind Group', initials:'AH', url:'https://ypoconnect.org/#/memberProfile?memberId=30303334-4d30-3030-3032-425552475800&source=ams&returnPath=https%3A%2F%2Fmembers.ypoconnect.org%2F%3Fsearchkey%3DIris%20Club&sortby=Best%20Match'}
+  }
+];
+
+const $ = s => document.querySelector(s);
+const state = { cat:'all', city:'all', cuisine:'all', q:'' };
+const cuisineOk = v => state.cuisine==='all' || (v.cuisineTags||[]).includes(state.cuisine);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function card(v){
+  return `<button class="card" data-id="${v.id}" aria-label="Open ${esc(v.name)} snapshot">
+    <div class="top">
+      <div class="logo" aria-hidden="true">${esc(v.initials)}<small>Logo</small></div>
+      <div style="min-width:0">
+        <h3>${esc(v.name)}</h3>
+        <div class="meta">${esc(v.area)}</div>
+      </div>
+    </div>
+    <dl class="kv">
+      <div><dt>City</dt><dd>${esc(v.city)}</dd></div>
+      <div><dt>${v.cuisineLabel||'Cuisine'}</dt><dd>${esc(v.cuisine)}</dd></div>
+    </dl>
+    <div class="body">
+      <div><span class="tag ${v.cat}">${v.catLabel}</span></div>
+      <p class="desc">${esc(v.short)}</p>
+      <div class="offer"><span class="k">YPO member offer</span><p>${esc(v.offer)}</p></div>
+      <div class="foot"><span>${esc(v.area.split('·')[0].trim())}</span><span class="go">View snapshot →</span></div>
+    </div>
+  </button>`;
+}
+
+function snapshot(v, inDialog){
+  return `<article class="snap">
+    <div class="bar"><span><span class="dot"></span>Live listing · ${v.catLabel} · ${esc(v.city)}</span>${inDialog?'<button class="close" id="close-detail">Close</button>':'<span>Updated Sep 2026</span>'}</div>
+    <div class="head">
+      <div class="logo lg" aria-label="${esc(v.name)} logo placeholder">${esc(v.initials)}<small>Logo</small></div>
+      <div>
+        <h3>${esc(v.name)}</h3>
+        <div class="meta">${esc(v.area)}</div>
+        <dl class="kv inline">
+          <div><dt>City</dt><dd>${esc(v.city)}</dd></div>
+          <div><dt>${v.cuisineLabel||'Cuisine'}</dt><dd>${esc(v.cuisine)}</dd></div>
+          <div><dt>Venue type</dt><dd>${esc(v.type)}</dd></div>
+        </dl>
+        <div class="tags"><span class="tag ${v.cat}">${v.catLabel}</span><span class="tag pilot">YPO partner</span></div>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="main">
+        <p class="quote">${esc(v.quote)}</p>
+        ${v.desc.map(p=>`<p>${esc(p)}</p>`).join('')}
+        <div class="offer">
+          <span class="k">YPO member offer</span>
+          <p>${esc(v.offer)}</p>
+          <ul>${v.terms.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
+        </div>
+        <p class="ph-note" style="margin-top:.8rem">Offer wording is illustrative and pending agreement with the venue.</p>
+      </div>
+      <aside class="side">
+        <dl class="facts">
+          <div><dt>City</dt><dd>${esc(v.city)}</dd></div>
+          <div><dt>Location</dt><dd>${esc(v.area)}</dd></div>
+          <div><dt>${v.cuisineLabel||'Cuisine'}</dt><dd>${esc(v.cuisine)}</dd></div>
+          <div><dt>Venue type</dt><dd>${esc(v.type)}</dd></div>
+          <div><dt>Hours</dt><dd>${esc(v.hours)}</dd></div>
+          <div><dt>Dress</dt><dd>${esc(v.dress)}</dd></div>
+          <div><dt>Note</dt><dd>${esc(v.note)}</dd></div>
+        </dl>
+        <div class="btns">
+          <a class="btn" href="${v.booking}"${v.booking.startsWith('tel:')?'':' target="_blank" rel="noopener"'}>${esc(v.bookingLabel)} ↗</a>
+          <a class="btn ghost" href="${v.website}" target="_blank" rel="noopener">${esc(v.websiteLabel)} ↗</a>
+        </div>
+        <div>
+          <div class="lbl">Affiliated member</div>
+          <div class="member">
+            <div class="avatar${v.member?' on':''}" aria-hidden="true">${v.member?esc(v.member.initials):'YPO'}</div>
+            <div style="min-width:0">
+              <div class="nm">${v.member?esc(v.member.name):'[Member name]'}</div>
+              <div class="rl">${v.member?esc(v.member.role):'[Chapter] · [Role at venue]'}</div>
+              <a href="${v.member?esc(v.member.url):'https://ypoconnect.org'}" target="_blank" rel="noopener">View YPO Connect profile ↗</a>
+            </div>
+          </div>
+          ${v.member?'':'<p class="ph-note" style="margin-top:.45rem">Placeholder. Replace with the host member\'s Connect profile URL.</p>'}
+        </div>
+      </aside>
+    </div>
+  </article>`;
+}
+
+function render(){
+  const q = state.q.trim().toLowerCase();
+  const list = VENUES.filter(v =>
+    (state.cat==='all'||v.cat===state.cat) &&
+    (state.city==='all'||v.city===state.city) &&
+    cuisineOk(v) &&
+    (!q || [v.name,v.cuisine,v.type,v.area,v.city,v.short].join(' ').toLowerCase().includes(q)));
+  const g = $('#grid');
+  if(list.length){ g.innerHTML = list.map(card).join(''); }
+  else {
+    const lbl = {bar:'bar',club:'club',restaurant:'restaurant'}[state.cat];
+    const cz = state.cuisine!=='all' ? state.cuisine+' ' : '';
+    const where = state.city!=='all' ? state.city : '';
+    const head = (lbl||cz) ? `No ${esc(cz)}${lbl||''} partners listed${where?' in '+esc(where):''} yet`.replace('  ',' ') : (where ? `No partners listed in ${esc(where)} yet` : 'No partners match this search');
+    g.innerHTML = `<div class="empty"><strong>${head}</strong>Venues here are being onboarded with member hosts. Know a venue that should be on the list? Tell the regional office.</div>`;
+  }
+  document.querySelectorAll('.chip').forEach(b=>{
+    const c=b.dataset.cat;
+    const n=VENUES.filter(v=>(c==='all'||v.cat===c)&&(state.city==='all'||v.city===state.city)&&cuisineOk(v)).length;
+    b.querySelector('.ct').textContent=n;
+    b.setAttribute('aria-pressed', String(c===state.cat));
+  });
+}
+
+document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{state.cat=b.dataset.cat;render();}));
+$('#f-city').addEventListener('change',e=>{state.city=e.target.value;render();});
+$('#f-cuisine').addEventListener('change',e=>{state.cuisine=e.target.value;render();});
+$('#f-q').addEventListener('input',e=>{state.q=e.target.value;render();});
+
+const dlg = $('#detail');
+$('#grid').addEventListener('click',e=>{
+  const c=e.target.closest('.card'); if(!c) return;
+  const v=VENUES.find(x=>x.id===c.dataset.id);
+  $('#detail-body').innerHTML=snapshot(v,true);
+  $('#close-detail').addEventListener('click',()=>dlg.close());
+  if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+});
+dlg.addEventListener('click',e=>{ if(e.target===dlg) dlg.close(); });
+
+$('#snap-inline').innerHTML = snapshot(VENUES[0], false);
+render();
+</script>
+</body>
+</html>
